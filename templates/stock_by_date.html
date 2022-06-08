@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="\static\style.css">
+    <title>Show Stock</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 class="center">Inventory Data for {{date}}</h1>
+{% for table in tables %}
+    {{ table|safe }}
+{% endfor %}
+<br/>
+<form action="/stock_by_date" class="center">
+      See inventory data by date mm-dd-yy:  <input name="date" type="text"><button type="submit">Submit</button>
+    <br>
+    <a href="/">Back</a>
+</form>
+<br>
+</body>
+</html>
