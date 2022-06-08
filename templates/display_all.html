@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="\static\style.css">
+    <title>Show Stock</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1 class="center">Inventory Data</h1>
+{% for table in tables %}
+    {{ table|safe }}
+{% endfor %}
+<br/>
+<br/>
+
+<h2 class="center">Manage inventory</h2>
+    <form action="/update" class="center">
+    Item:     <select name="item">
+                {% set count = namespace(value=0) %}
+                {% for selection in selections %}
+                    <option value="{{count.value}}">{{selection}}</option>
+                {% set count.value = count.value + 1 %}
+                {% endfor %}
+            </select>
+    Action:
+        <select name="actions">
+            <option  value="remove">Remove</option>
+            <option  value="checkout" >Check-out</option>
+            <option  value="checkin">Check-in</option>
+        </select>
+        Amount: <input name="amount" type="text"><button type="submit">Submit</button>
+    </form>
+    <br>
+    <form action="/stock_by_date" class="center">
+      See inventory data by date mm-dd-yy:  <input name="date" type="text"><button type="submit">Submit</button>
+    </form>
+</body>
+</html>
