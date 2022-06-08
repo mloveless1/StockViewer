@@ -1,0 +1,17 @@
+heaters - add
+kiddie chairs - added
+kiddie tables - added
+tents size 10x10 10x20 10x30
+chairs - added
+photo booth - add
+360 photo booth - add
+long tables - added
+round tables - added
+
+Design for orders database:
+ {Key = Date (mm-dd-yyyy format): {items :list with item names, Quantities: list with amount of each item ordered}
+
+The quantities list will be ordered by the item ID's so, index 0 will be the quantities of chairs
+
+Available items will pull all items with the selected date as the key, add up all of the quantities
+and compare to the inventory database to show the available stock for that day
